@@ -19,11 +19,25 @@
             </div>
         </div>
 
-        @if($restaurant->menus->count() >0){
+        @if($restaurant->menus->count() >0)
         @foreach($restaurant->menus as $menu)
+            <div class="card">
+                <div class="card-header">{{$menu->name}}</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        @foreach($menu->dishes as $dish)
+                            <li class="list-group-item">
+                                {{$dish->name}} / {{$dish->price}}
+                            </li>
+                            @endforeach
+                    </ul>
+
+                </div>
+            </div>
         @endforeach
         @else
-                
+            <h2 class="text-center">Ce restaurant ne dispose actuellement pas d'un menu.</h2>
+
         @endif
     </div>
 @endsection

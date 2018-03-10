@@ -21,14 +21,19 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('foodtype', [
+    Route::get('foodtypes', [
         'uses' => 'FoodTypeController@showAll',
-        'as' => 'foodtype'
+        'as' => 'foodtypes'
     ]);
 
     Route::get('foodtype/{slug}', [
         'uses' => 'FoodTypeController@show',
         'as' => 'foodtype.show'
+    ]);
+
+    Route::get('restaurants',[
+        'uses' => 'RestaurantController@showAll',
+        'as' => 'restaurants'
     ]);
 
     Route::get('restaurant/{slug}',[

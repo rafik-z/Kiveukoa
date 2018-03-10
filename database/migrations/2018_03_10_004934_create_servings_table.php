@@ -12,7 +12,6 @@ class CreateServingsTable extends Migration
         Schema::create('servings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->integer('foodtype_id');
             $table->integer('user_id');
             $table->integer('restaurant_id');
             $table->dateTime('dueDate');

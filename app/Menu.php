@@ -20,4 +20,8 @@ class Menu extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function dishes(){
+        return $this->hasMany('App\Dish');
+    }
 }

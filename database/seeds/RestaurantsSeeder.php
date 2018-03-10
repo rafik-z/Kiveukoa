@@ -43,7 +43,7 @@ class RestaurantsSeeder extends Seeder
                 'description' => $descriptions[$i],
                 'address' => $addresses[$i],
                 'user_id' => 1,
-                'foodtype_id' => rand(1,7)
+                'food_type_id' => rand(1,7)
             ]);
         }
     }

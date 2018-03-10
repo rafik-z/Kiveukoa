@@ -11,7 +11,13 @@ class RestaurantController extends Controller
 
         $restaurantToShow = Restaurant::where('slug', $slug)->first();
 
-        return view('dashboard.restaurant')->with('restaurant', $restaurantToShow);
+        return view('dashboard.restaurant')->with('restaurant', $restaurantToShow)->with('restaurantActive', true);
 
+    }
+
+    public function showAll(){
+        $restaurantsToShow = Restaurant::all();
+
+        return view ('dashboard.restaurants')->with('restaurants', $restaurantsToShow)->with('restaurantActive', true);
     }
 }

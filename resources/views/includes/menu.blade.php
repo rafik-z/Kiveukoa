@@ -1,32 +1,37 @@
 <div class="ui secondary pointing menu">
-    @if(isset($homeActive) && $homeActive)
-        <a class="active item" href="{{route('home')}}">
-    @else
-        <a class="item" href="{{route('home')}}">
-    @endif
+    <a class="item
+@if(isset($homeActive) && $homeActive)
+            active
+@endif
+            " href="{{route('home')}}">
         Home
-        </a>
+    </a><a class="item
+@if(isset($foodTypeActive) && $foodTypeActive)
+            active
+@endif
+            " href="{{route('foodtypes')}}">
+        Food types
+    </a>
+    <a class="item
+@if(isset($restaurantActive) && $restaurantActive)
+            active
+@endif
+            " href="{{route('restaurants')}}">
+        Restaurants
+    </a>
     @if(Auth::check())
-        @if(isset($foodTypeActive) && $foodTypeActive)
-            <a class="item active" href="{{route('foodtype')}}">
-        @else
-            <a class="item" href="{{route('foodtype')}}">
-        @endif
-            Food types
-        </a>
-            Friends
-        </a>
-            <div class="right menu">
-                <a class="ui item">
-                    Logout
-                </a>
-            </div>
-        @else
-            <div class="right menu">
-                <a class="ui item" href="{{ route('login') }}">{{ __('Login') }}
-                </a>
-                <a class="ui item" href="{{ route('register') }}">{{ __('Register') }}
-                </a>
-            </div>
+        <div class="right menu">
+
+            <a class="ui item">
+                Logout
+            </a>
+        </div>
+    @else
+        <div class="right menu">
+            <a class="ui item" href="{{ route('login') }}">{{ __('Login') }}
+            </a>
+            <a class="ui item" href="{{ route('register') }}">{{ __('Register') }}
+            </a>
+        </div>
     @endif
 </div>
