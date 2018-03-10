@@ -20,5 +20,7 @@
     "semantic-ui-css": "^2.3.0",
     "vue": "^2.5.7"
   },
-  "dependencies": {}
+  "dependencies": {
+    "font-awesome": "^4.7.0"
+  }
 }

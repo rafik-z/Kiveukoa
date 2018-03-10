@@ -60,12 +60,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function(){
         'as' => 'foodtype.store'
     ]);
 
+    Route::get('restaurants',[
+        'uses' => 'RestaurantController@adminShowAll',
+        'as' => 'restaurant.index'
+    ]);
+
     Route::get('restaurant/create',[
         'uses' => 'RestaurantController@create',
         'as' => 'restaurant.create'
     ]);
 
-    Route::post('restaurant/store',[
+    Route::post('restaurant/store/new',[
         'uses' => 'RestaurantController@store',
         'as' => 'restaurant.store'
     ]);
@@ -75,7 +80,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function(){
         'as' => 'menu.create'
     ]);
 
-    Route::post('menu/store',[
+    Route::post('menu/store/new',[
         'uses' => 'MenuController@store',
         'as' => 'menu.store'
     ]);
@@ -85,7 +90,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function(){
         'as' => 'dish.create'
     ]);
 
-    Route::post('dish/store',[
+    Route::post('dish/store/new',[
         'uses' => 'DishController@store',
         'as' => 'dish.store'
     ]);

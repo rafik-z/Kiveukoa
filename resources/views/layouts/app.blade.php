@@ -12,8 +12,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/semantic.min.css')}}">
+    @yield('styles')
 </head>
 <body>
     <div id="app">
@@ -30,5 +32,6 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
     <script src="{{ asset('js/semantic.min.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

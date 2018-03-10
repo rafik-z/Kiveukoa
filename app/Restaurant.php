@@ -15,7 +15,7 @@ class Restaurant extends Model
     }
 
     public function foodType(){
-        return $this->hasOne('App\FoodType');
+        return $this->belongsTo('App\FoodType');
     }
 
     public function menus(){
