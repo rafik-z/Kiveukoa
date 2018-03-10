@@ -3,23 +3,46 @@
     @include('includes/menu', ['home' => true, 'foodtypeActive' => false])
 @endsection
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+        <div class="col-lg-3">
             <div class="card">
-                <div class="card-header">Dashboard</div>
-
+                <div class="card-header justify-content-center">
+                    Food types
+                </div>
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+                    <h1 class="text-center">{{$foodtypes}}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header justify-content-center">
+                    Restaurants
+                </div>
+                <div class="card-body">
+                    <h1 class="text-center">{{$restaurants}}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header justify-content-center">
+                    Dishes
+                </div>
+                <div class="card-body justify-content-center">
+                    <h1 class="text-center">{{$dishes}}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header justify-content-center">
+                    Menus
+                </div>
+                <div class="card-body justify-content-center">
+                    <h1 class="text-center">{{$menus}}</h1>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

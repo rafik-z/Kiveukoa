@@ -22,9 +22,16 @@
     @if(Auth::check())
         <div class="right menu">
 
-            <a class="ui item">
+
+            <a href="{{ route('logout') }}" class="ui item"
+               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                 Logout
             </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
         </div>
     @else
         <div class="right menu">
