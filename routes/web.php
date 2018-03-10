@@ -12,13 +12,27 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function () {
 
-Auth::routes();
+    Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('foodtype', [
+        'uses' => 'FoodTypeController@showAll',
+        'as' => 'foodtype'
+    ]);
+
+    Route::get('foodtype/{slug}', [
+        'uses' => 'FoodTypeController@show',
+        'as' => 'foodtype.show'
+    ]);
+
+    Route::get('restaurant/{slug}',[
+        'uses' => 'RestaurantController@show',
+        'as' => 'restaurant.show'
+    ]);
+});

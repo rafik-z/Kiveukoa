@@ -8,7 +8,7 @@ class Menu extends Model
 {
 
     protected $fillable = [
-        'name', 'restaurantId', 'userId'
+        'name', 'restaurant_id', 'user_id'
     ];
 
     public function restaurant()

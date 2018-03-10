@@ -44,7 +44,7 @@ class DishesSeeder extends Seeder
                 App\Dish::create([
                     'name' => $dishesName[rand(1,28)],
                     'price' => rand(1,45),
-                    'menuId' => $i+1
+                    'menu_id' => $i+1
                 ]);
             }
         }

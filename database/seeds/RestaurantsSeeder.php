@@ -42,8 +42,8 @@ class RestaurantsSeeder extends Seeder
                 'slug' => str_slug($restaurantNames[$i]),
                 'description' => $descriptions[$i],
                 'address' => $addresses[$i],
-                'userId' => 1,
-                'foodTypeId' => rand(1,7)
+                'user_id' => 1,
+                'foodtype_id' => rand(1,7)
             ]);
         }
     }

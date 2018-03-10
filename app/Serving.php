@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Serving extends Model
 {
     protected $fillable = [
-        'title', 'foodTypeId', 'userId', 'restaurantId', 'dueDate'
+        'title', 'foodtype_id', 'user_id', 'restaurant_id', 'dueDate'
     ];
 
     public function creator(){

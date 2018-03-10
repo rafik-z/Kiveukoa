@@ -20,7 +20,7 @@ class FoodTypesSeeder extends Seeder
             App\FoodType::create([
                 'name' => $foodType,
                 'slug' => str_slug($foodType),
-                'userId' => 1
+                'user_id' => 1
             ]);
         }
     }

@@ -15,8 +15,8 @@ class CreateRestaurantsTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->string('address');
-            $table->integer('userId');
-            $table->integer('foodTypeId');
+            $table->integer('user_id');
+            $table->integer('foodtype_id');
             $table->timestamps();
         });
     }
