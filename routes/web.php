@@ -40,4 +40,16 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'RestaurantController@show',
         'as' => 'restaurant.show'
     ]);
+
+});
+
+Route::group(['middleware' => 'administrator'], function(){
+
+    Route::get('dashboard',[
+        'uses' => 'AdminController@dashboard',
+        'as' => 'admin.dashboard'
+    ]);
+
+
+
 });

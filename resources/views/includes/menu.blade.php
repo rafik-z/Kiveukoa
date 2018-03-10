@@ -21,8 +21,9 @@
     </a>
     @if(Auth::check())
         <div class="right menu">
-
-
+            @if(Auth::user()->administrator)
+                <a href="{{route('admin.dashboard')}}" class="ui item">Admin Dashboard</a>
+            @endif
             <a href="{{ route('logout') }}" class="ui item"
                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
