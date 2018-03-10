@@ -43,13 +43,51 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-Route::group(['middleware' => 'administrator'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function(){
 
     Route::get('dashboard',[
         'uses' => 'AdminController@dashboard',
         'as' => 'admin.dashboard'
     ]);
 
+    Route::get('foodtype/create',[
+        'uses' => 'FoodTypeController@create',
+        'as' => 'foodtype.create'
+    ]);
 
+    Route::post('foodtype/store',[
+        'uses' => 'FoodTypeController@store',
+        'as' => 'foodtype.store'
+    ]);
+
+    Route::get('restaurant/create',[
+        'uses' => 'RestaurantController@create',
+        'as' => 'restaurant.create'
+    ]);
+
+    Route::post('restaurant/store',[
+        'uses' => 'RestaurantController@store',
+        'as' => 'restaurant.store'
+    ]);
+
+    Route::get('menu/create',[
+        'uses' => 'MenuController@create',
+        'as' => 'menu.create'
+    ]);
+
+    Route::post('menu/store',[
+        'uses' => 'MenuController@store',
+        'as' => 'menu.store'
+    ]);
+
+    Route::get('dish/create',[
+        'uses' => 'DishController@create',
+        'as' => 'dish.create'
+    ]);
+
+    Route::post('dish/store',[
+        'uses' => 'DishController@store',
+        'as' => 'dish.store'
+    ]);
 
 });

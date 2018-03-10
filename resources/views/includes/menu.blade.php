@@ -22,7 +22,11 @@
     @if(Auth::check())
         <div class="right menu">
             @if(Auth::user()->administrator)
-                <a href="{{route('admin.dashboard')}}" class="ui item">Admin Dashboard</a>
+                <a href="{{route('admin.dashboard')}}" class="
+@if(isset($adminActive) && $adminActive)
+                        active
+            @endif
+                        ui item">Admin Dashboard</a>
             @endif
             <a href="{{ route('logout') }}" class="ui item"
                onclick="event.preventDefault();

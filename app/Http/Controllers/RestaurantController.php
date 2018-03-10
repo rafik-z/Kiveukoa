@@ -20,4 +20,16 @@ class RestaurantController extends Controller
 
         return view ('dashboard.restaurants')->with('restaurants', $restaurantsToShow)->with('restaurantActive', true);
     }
+
+    public function create(){
+
+        return view ('admin.restaurant.create')
+            ->with('adminRestaurantActive', true)
+            ->with('adminActive', true);
+
+    }
+
+    public function store(Request $request){
+
+    }
 }
