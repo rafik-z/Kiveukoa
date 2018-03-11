@@ -16,7 +16,7 @@
                 @foreach($restaurants as $restaurant)
                     <tr>
                         <td>{{$restaurant -> name}}</td>
-                        <td>{{$restaurant -> foodType -> name}}</td>
+                        <td>{{$restaurant -> foodtype -> name}}</td>
                         <td>
                             <a href="{{route('restaurant.edit', ['id' => $restaurant->id])}}" class="btn btn-info">
                                 <span class="fa fa-edit"></span>
