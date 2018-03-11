@@ -116,6 +116,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function ()
 
     // Menu routes
 
+    Route::get('menus',[
+        'uses' => 'MenuController@adminShowAll',
+        'as' => 'menu.index'
+    ]);
+
     Route::get('menu/create', [
         'uses' => 'MenuController@create',
         'as' => 'menu.create'
@@ -126,7 +131,27 @@ Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function ()
         'as' => 'menu.store'
     ]);
 
+    Route::get('menu/{id}/edit', [
+        'uses' => 'MenuController@edit',
+        'as' => 'menu.edit'
+    ]);
+
+    Route::post('menu/{id}/update', [
+        'uses' => 'MenuController@update',
+        'as' => 'menu.update'
+    ]);
+
+    Route::get('menu/{id}/delete',[
+        'uses' => 'MenuController@delete',
+        'as' => 'menu.delete'
+    ]);
+
     // Dish routes
+
+    Route::get('dishes',[
+        'uses' => 'Dishcontroller@adminShowAll',
+        'as' => 'dish.index'
+    ]);
 
     Route::get('dish/create', [
         'uses' => 'DishController@create',
@@ -138,4 +163,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function ()
         'as' => 'dish.store'
     ]);
 
+    Route::get('dish/{id}/edit', [
+        'uses' => 'DishController@edit',
+        'as' => 'dish.edit'
+    ]);
+
+    Route::post('dish/{id}/update', [
+        'uses' => 'DishController@update',
+        'as' => 'dish.update'
+    ]);
+
+    Route::get('dish/{id}/delete',[
+        'uses' => 'DishController@delete',
+        'as' => 'dish.delete'
+    ]);
 });
