@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Dish;
 use App\Menu;
 use Illuminate\Http\Request;
@@ -27,12 +28,14 @@ class DishController extends Controller
            'price' => 'required|integer'
         ]);
 
-        Dish::create([
+        $dish = Dish::create([
            'name' => $request->name,
            'price' => $request->price,
            'menu_id' => $id,
             'user_id'=> Auth::id()
         ]);
+
+        Session::flash('success', $dish->name . ' has been created.');
 
         return redirect()->back();
 
@@ -42,6 +45,8 @@ class DishController extends Controller
 
         $dishToEdit = Dish::find($id);
         $menus = Menu::where('restaurant_id', $dishToEdit->menu->restaurant->id)->get();
+
+        Session::flash('success', $dishToEdit->name . ' has been edited.');
 
         return view('admin.dish.edit')
             ->with('dish', $dishToEdit)

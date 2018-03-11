@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use Auth;
 use App\FoodType;
 use App\Restaurant;
@@ -9,7 +10,8 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
-    public function show($slug){
+    public function show($slug)
+    {
 
         $restaurantToShow = Restaurant::where('slug', $slug)->first();
 
@@ -17,24 +19,27 @@ class RestaurantController extends Controller
 
     }
 
-    public function showAll(){
+    public function showAll()
+    {
         $restaurantsToShow = Restaurant::all();
 
-        return view ('dashboard.restaurants')
+        return view('dashboard.restaurants')
             ->with('restaurants', $restaurantsToShow)
             ->with('restaurantActive', true);
     }
 
-    public function adminShowAll(){
+    public function adminShowAll()
+    {
         $restaurantsToShow = Restaurant::all();
 
-        return view ('admin.restaurant.index')
+        return view('admin.restaurant.index')
             ->with('restaurants', $restaurantsToShow)
             ->with('adminRestaurantActive', true)
             ->with('adminActive', true);
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $restaurantToEdit = Restaurant::find($id);
 
         $foodtypes = FoodType::all();
@@ -46,27 +51,29 @@ class RestaurantController extends Controller
             ->with('foodtypes', $foodtypes);
     }
 
-    public function create(){
+    public function create()
+    {
 
         $foodtypes = FoodType::all();
 
-        return view ('admin.restaurant.create')
+        return view('admin.restaurant.create')
             ->with('adminRestaurantActive', true)
             ->with('adminActive', true)
             ->with('foodtypes', $foodtypes);
 
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
-        $this->validate($request,[
+        $this->validate($request, [
             'foodtype_id' => 'required',
             'name' => 'required',
             'description' => 'required',
             'address' => 'required'
         ]);
 
-        Restaurant::create([
+        $restaurant = Restaurant::create([
             'name' => $request->name,
             'description' => $request->description,
             'address' => $request->address,
@@ -75,11 +82,14 @@ class RestaurantController extends Controller
             'slug' => str_slug($request->name)
         ]);
 
+        Session::flash('success', $restaurant->name . ' has been correctly created.');
+
         return redirect()->back();
 
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
 
         $restaurantToUpdate = Restaurant::find($request->id);
 
@@ -94,7 +104,8 @@ class RestaurantController extends Controller
 
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $restaurantToDelete = Restaurant::find($id);
 
         $restaurantToDelete->delete();
