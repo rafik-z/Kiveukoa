@@ -7,13 +7,13 @@
                     " href="{{route('admin.dashboard')}}">Dashboard</a>
         </li>
         <li class="nav-item dropdown">
-            <a class=" @if(isset($adminfoodTypeActive) && $adminfoodTypeActive)
+            <a class=" @if(isset($adminFoodTypeActive) && $adminFoodTypeActive)
                     active
                     @endif
                     nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Food type</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="{{route('foodtype.create')}}">Create</a>
-                <a class="dropdown-item" href="#">Manage</a>
+                <a class="dropdown-item" href="{{route('foodtype.index')}}">Manage</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Statistics</a>
             </div>
