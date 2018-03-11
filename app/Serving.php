@@ -25,4 +25,8 @@ class Serving extends Model
     public function foodType(){
         return $this->belongsTo('App\FoodType');
     }
+
+    public function meals(){
+        return $this->hasMany('App\Dish');
+    }
 }

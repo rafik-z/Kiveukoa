@@ -13,4 +13,8 @@ class Dish extends Model
     public function menu(){
         return $this->belongsTo('App\Menu');
     }
+
+    public function meals(){
+        return $this->belongsToMany('App\Dish');
+    }
 }
