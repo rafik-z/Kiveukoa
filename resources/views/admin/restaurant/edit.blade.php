@@ -12,7 +12,11 @@
                         <label for="foodtype">Select food type</label>
                         <select name="food_type_id" id="foodtype" class="form-control">
                             @foreach($foodtypes as $foodtype)
-                                <option value="{{$restaurant->foodtype->id}}">{{$restaurant->foodtype->name}}</option>
+                                <option value="{{$foodtype->id}}"
+                                        @if($restaurant->foodType->id == $foodtype->id)
+                                        selected
+                                        @endif
+                                >{{$foodtype->name}}</option>
                             @endforeach
                         </select>
                     </div>
