@@ -37,7 +37,7 @@
                     nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="{{route('menu.create')}}">Create</a>
-                <a class="dropdown-item" href="#">Manage</a>
+                <a class="dropdown-item" href="{{route('menu.index')}}">Manage</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Statistics</a>
             </div>
