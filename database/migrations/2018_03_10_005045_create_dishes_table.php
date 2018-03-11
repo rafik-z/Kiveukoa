@@ -14,6 +14,7 @@ class CreateDishesTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->integer('menu_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
