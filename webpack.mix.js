@@ -13,7 +13,9 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/semantic.min.js', 'public/js')
+    .js('resources/assets/js/toastr.min.js', 'public/js')
     .copy('resources/assets/css/themes', 'public/css/themes')
+    .copy('resources/assets/css/toastr.min.css', 'public/css')
     .js('resources/assets/js/sortedList.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
 ;

@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/toastr.min.js": "/js/toastr.min.js",
     "/js/sortedList.js": "/js/sortedList.js",
-    "/js/semantic.min.js": "/js/semantic.min.js"
+    "/js/semantic.min.js": "/js/semantic.min.js",
+    "/css/toastr.min.css": "/css/toastr.min.css"
 }
