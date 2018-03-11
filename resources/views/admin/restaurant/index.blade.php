@@ -18,12 +18,12 @@
                         <td>{{$restaurant -> name}}</td>
                         <td>{{$restaurant -> foodType -> name}}</td>
                         <td>
-                            <a href="" class="btn btn-info">
+                            <a href="{{route('restaurant.edit', ['id' => $restaurant->id])}}" class="btn btn-info">
                                 <span class="fa fa-edit"></span>
                             </a>
                         </td>
                         <td>
-                            <a href="" class="btn btn-danger">
+                            <a href="{{route('restaurant.delete', ['id' => $restaurant->id])}}" class="btn btn-danger">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>

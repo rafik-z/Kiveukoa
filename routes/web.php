@@ -31,66 +31,81 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'foodtype.show'
     ]);
 
-    Route::get('restaurants',[
+    Route::get('restaurants', [
         'uses' => 'RestaurantController@showAll',
         'as' => 'restaurants'
     ]);
 
-    Route::get('restaurant/{slug}',[
+    Route::get('restaurant/{slug}', [
         'uses' => 'RestaurantController@show',
         'as' => 'restaurant.show'
     ]);
 
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function () {
 
-    Route::get('dashboard',[
+    Route::get('dashboard', [
         'uses' => 'AdminController@dashboard',
         'as' => 'admin.dashboard'
     ]);
 
-    Route::get('foodtype/create',[
+    Route::get('foodtype/create', [
         'uses' => 'FoodTypeController@create',
         'as' => 'foodtype.create'
     ]);
 
-    Route::post('foodtype/store',[
+    Route::post('foodtype/store', [
         'uses' => 'FoodTypeController@store',
         'as' => 'foodtype.store'
     ]);
 
-    Route::get('restaurants',[
+    Route::get('restaurants', [
         'uses' => 'RestaurantController@adminShowAll',
         'as' => 'restaurant.index'
     ]);
 
-    Route::get('restaurant/create',[
+    Route::get('restaurant/create', [
         'uses' => 'RestaurantController@create',
         'as' => 'restaurant.create'
     ]);
 
-    Route::post('restaurant/store/new',[
+    Route::post('restaurant/store/new', [
         'uses' => 'RestaurantController@store',
         'as' => 'restaurant.store'
     ]);
 
-    Route::get('menu/create',[
+    Route::get('restaurant/{id}/edit', [
+        'uses' => 'RestaurantController@edit',
+        'as' => 'restaurant.edit'
+    ]);
+
+    Route::post('restaurant/{id}/update', [
+        'uses' => 'RestaurantController@update',
+        'as' => 'restaurant.update'
+    ]);
+
+    Route::get('restaurant/{id}/delete',[
+        'uses' => 'RestaurantController@delete',
+        'as' => 'restaurant.delete'
+    ]);
+
+    Route::get('menu/create', [
         'uses' => 'MenuController@create',
         'as' => 'menu.create'
     ]);
 
-    Route::post('menu/store/new',[
+    Route::post('menu/store/new', [
         'uses' => 'MenuController@store',
         'as' => 'menu.store'
     ]);
 
-    Route::get('dish/create',[
+    Route::get('dish/create', [
         'uses' => 'DishController@create',
         'as' => 'dish.create'
     ]);
 
-    Route::post('dish/store/new',[
+    Route::post('dish/store/new', [
         'uses' => 'DishController@store',
         'as' => 'dish.store'
     ]);

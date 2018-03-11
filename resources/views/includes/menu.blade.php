@@ -19,6 +19,13 @@
             " href="{{route('restaurants')}}">
         Restaurants
     </a>
+    <a class="item
+@if(isset($restaurantActive) && $restaurantActive)
+            active
+@endif
+            " href="{{route('restaurants')}}">
+        Servings
+    </a>
     @if(Auth::check())
         <div class="right menu">
             @if(Auth::user()->administrator)

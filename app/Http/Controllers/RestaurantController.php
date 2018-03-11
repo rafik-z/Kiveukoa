@@ -34,6 +34,18 @@ class RestaurantController extends Controller
             ->with('adminActive', true);
     }
 
+    public function edit($id){
+        $restaurantToEdit = Restaurant::find($id);
+
+        $foodtypes = FoodType::all();
+
+        return view('admin.restaurant.edit')
+            ->with('restaurant', $restaurantToEdit)
+            ->with('adminRestaurantActive', true)
+            ->with('adminActive', true)
+            ->with('foodtypes', $foodtypes);
+    }
+
     public function create(){
 
         $foodtypes = FoodType::all();
@@ -65,5 +77,28 @@ class RestaurantController extends Controller
 
         return redirect()->back();
 
+    }
+
+    public function update(Request $request){
+
+        $restaurantToUpdate = Restaurant::find($request->id);
+
+        $restaurantToUpdate->name = $request->name;
+        $restaurantToUpdate->description = $request->description;
+        $restaurantToUpdate->food_type_id = $request->food_type_id;
+        $restaurantToUpdate->address = $request->address;
+
+        $restaurantToUpdate->save();
+
+        return redirect()->back();
+
+    }
+
+    public function delete($id){
+        $restaurantToDelete = Restaurant::find($id);
+
+        $restaurantToDelete->delete();
+
+        return redirect()->back();
     }
 }
