@@ -42,19 +42,6 @@
                 <a class="dropdown-item" href="#">Statistics</a>
             </div>
         </li>
-        <li class="nav-item dropdown">
-            <a class=" @if(isset($adminDishActive) && $adminDishActive)
-                    active
-                    @endif
-                    nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dish</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{route('dish.create')}}">Create</a>
-                <a class="dropdown-item" href="#">Manage</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Statistics</a>
-            </div>
-        </li>
-
     </ul>
 </div>
 <br>

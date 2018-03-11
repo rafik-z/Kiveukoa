@@ -148,17 +148,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function ()
 
     // Dish routes
 
-    Route::get('dishes',[
-        'uses' => 'Dishcontroller@adminShowAll',
+    Route::get('menu/{id}/dishes',[
+        'uses' => 'MenuController@showDishes',
         'as' => 'dish.index'
     ]);
 
-    Route::get('dish/create', [
-        'uses' => 'DishController@create',
-        'as' => 'dish.create'
-    ]);
-
-    Route::post('dish/store/new', [
+    Route::post('dish/{id}/store', [
         'uses' => 'DishController@store',
         'as' => 'dish.store'
     ]);

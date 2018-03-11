@@ -6,6 +6,7 @@
             <th>Name</th>
             <th>Restaurant</th>
             <th>Foodtype</th>
+            <th>Dishes</th>
             <th>Editing</th>
             <th>Deleting</th>
             </thead>
@@ -15,6 +16,11 @@
                         <td>{{$menu -> name}}</td>
                         <td>{{$menu -> restaurant -> name}}</td>
                         <td>{{$menu -> restaurant -> foodType -> name}}</td>
+                        <td>
+                            <a href="{{route('dish.index', ['id' => $menu->id])}}" class="btn btn-info">
+                                <span class="fa fa-list-ul"></span>
+                            </a>
+                        </td>
                         <td>
                             <a href="{{route('menu.edit', ['id' => $menu->id])}}" class="btn btn-info">
                                 <span class="fa fa-edit"></span>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Dish;
 use App\Restaurant;
 use App\Menu;
 use Illuminate\Http\Request;
@@ -65,6 +66,16 @@ class MenuController extends Controller
             ->with('adminMenuActive', true)
             ->with('adminActive', true);
 
+    }
+
+    public function showDishes($id){
+        $menuToShow = Menu::find($id);
+
+        return view('admin.dish.index')
+            ->with('menu', $menuToShow)
+            ->with('dishes', $menuToShow->dishes)
+            ->with('adminMenuActive', true)
+            ->with('adminActive', true);
     }
 
     public function update(Request $request){
