@@ -50,15 +50,39 @@ Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function ()
         'as' => 'admin.dashboard'
     ]);
 
+    // Foodtype routes
+
+    Route::get('foodtypes', [
+        'uses' => 'FoodTypeController@adminShowAll',
+        'as' => 'foodtype.index'
+    ]);
+
     Route::get('foodtype/create', [
         'uses' => 'FoodTypeController@create',
         'as' => 'foodtype.create'
     ]);
 
-    Route::post('foodtype/store', [
+    Route::post('foodtype/store/new', [
         'uses' => 'FoodTypeController@store',
         'as' => 'foodtype.store'
     ]);
+
+    Route::get('foodtype/{id}/edit', [
+        'uses' => 'FoodTypeController@edit',
+        'as' => 'foodtype.edit'
+    ]);
+
+    Route::post('foodtype/{id}/update', [
+        'uses' => 'FoodTypeController@update',
+        'as' => 'foodtype.update'
+    ]);
+
+    Route::get('foodtype/{id}/delete',[
+        'uses' => 'FoodTypeController@delete',
+        'as' => 'foodtype.delete'
+    ]);
+
+    // Restaurant routes
 
     Route::get('restaurants', [
         'uses' => 'RestaurantController@adminShowAll',
@@ -90,6 +114,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function ()
         'as' => 'restaurant.delete'
     ]);
 
+    // Menu routes
+
     Route::get('menu/create', [
         'uses' => 'MenuController@create',
         'as' => 'menu.create'
@@ -99,6 +125,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'administrator'], function ()
         'uses' => 'MenuController@store',
         'as' => 'menu.store'
     ]);
+
+    // Dish routes
 
     Route::get('dish/create', [
         'uses' => 'DishController@create',
