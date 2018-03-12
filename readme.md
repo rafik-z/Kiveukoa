@@ -1,10 +1,10 @@
 # Kiveukoa
 
-##**What is it?**
+## **What is it?**
 
 It's a small app made to ease dinners organization for teammates.
 
-##**How does it work ?**
+## **How does it work ?**
 
 You have two profiles aiming two uses, a big part of the functionalities is already implemented and is divided as follows. 
 
@@ -35,14 +35,14 @@ About the missing elements :
 
 * Full CRUD (Food type / Restaurant / Menu / Dish)
 
-##**How to make it work ?**
+## **How to make it work ?**
 
 You need a few things :
 * A Php server
 * Node w/ Npm
 * A database
 
-##**Install**
+## **Install**
 
 Configure your .env file (an example is provided).
 The part that we need is the database :
