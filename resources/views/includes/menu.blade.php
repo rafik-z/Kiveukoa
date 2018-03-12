@@ -19,11 +19,7 @@
             " href="{{route('restaurants')}}">
         Restaurants
     </a>
-    <a class="item
-@if(isset($restaurantActive) && $restaurantActive)
-            active
-@endif
-            " href="{{route('restaurants')}}">
+    <a class="item" href="{{route('restaurants')}}">
         Servings
     </a>
     @if(Auth::check())
